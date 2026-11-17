@@ -3,6 +3,8 @@
     <TargetFramework>net472</TargetFramework>
     <AssemblyName>KSPDiagOnRails</AssemblyName>
     <RootNamespace>com.github.lhervier.ksp.diag.onrails</RootNamespace>
+    <Version>0.1.0-dev</Version>
+    <Description>Holds vessels on rails and shows how deep they stand in other colliders</Description>
     <OutputType>Library</OutputType>
     <OutputPath>Output\bin</OutputPath>
     <IntermediateOutputPath>Output\obj</IntermediateOutputPath>
@@ -10,8 +12,6 @@
     <DebugType>none</DebugType>
     <DebugSymbols>false</DebugSymbols>
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <Deterministic>false</Deterministic>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies.net472" Version="1.0.3">
