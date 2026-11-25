@@ -14,27 +14,18 @@ namespace com.github.lhervier.ksp.diag.onrails
     internal static class McpTools
     {
         [McpTool("onrails_read",
-            "Reads what the window of KSP Diag - On Rails shows, without writing anything: whether vessels are kept " +
-                "on rails (keepOnRails), the active vessel (vessel, empty when there is none) and whether it is on " +
-                "rails (onRails), the display mode, the arrow scale (arrowScale, the arrows are that many times the " +
-                "depth), the deepest overlap in mm (deepestMm), the lift along the vertical that leaves no overlap in " +
-                "mm (liftMm, null when even 20 m leaves one), the colour the colliders of the parts are drawn in, " +
-                "where the physics has them (partColour, empty when there is no overlap), and the colliders the " +
-                "active vessel stands in " +
-                "(colliders), each with its name as listed (the quad's name for the ground), its colour, the level of " +
-                "its quad when it is ground (groundLevel), whether it is convex, and its overlaps: the part's title " +
-                "(part), the name of its collider (collider), the depth in mm (depthMm) and the angle between the way " +
-                "out and the vertical in degrees (angleFromVertical), deepest first.")]
+            "Reads what the window of KSP Diag - On Rails shows: keepOnRails, the active vessel and onRails, " +
+            "display mode, arrowScale, deepestMm, liftMm (null beyond 20 m), and the colliders the vessel stands " +
+            "in with their overlaps (part, collider, depthMm, angleFromVertical), deepest first.")]
         internal static object Read()
         {
             return Mod().Read();
         }
 
         [McpTool("onrails_keep_on_rails",
-            "Ticks or unticks the box Keep vessels on rails of KSP Diag - On Rails, as clicking it does. Ticked, no " +
-            "vessel leaves the rails, those of a save loaded afterwards included, until it is unticked; a vessel " +
-            "already off the rails stays so. Unticked, the game takes the vessels off the rails as it always does. " +
-            "Works in any scene. Returns the state of the box (keepOnRails).")]
+            "Ticks or unticks Keep vessels on rails of KSP Diag - On Rails, as a click does: ticked, no vessel " +
+            "leaves the rails (a save loaded afterwards included); a vessel already off stays off. Any scene. " +
+            "Returns keepOnRails.")]
         internal static object KeepOnRails(bool keep)
         {
             KSPDiagOnRails.KeepOnRails = keep;
@@ -42,9 +33,8 @@ namespace com.github.lhervier.ksp.diag.onrails
         }
 
         [McpTool("onrails_set_display",
-            "Chooses how KSP Diag - On Rails draws the colliders stood in, the arrows and their labels, as clicking " +
-            "one of the three modes of its window does: 0 Hidden by what stands in front (the default), 1 Through " +
-            "everything, 2 Off. What it measures goes on in every mode. Returns the mode now chosen (display).")]
+            "Chooses how KSP Diag - On Rails draws, as its three modes do: 0 hidden by what stands in front " +
+            "(default), 1 through everything, 2 off. Measuring goes on in every mode. Returns the mode (display).")]
         internal static object SetDisplay(double mode)
         {
             return new Dictionary<string, object> { { "display", Mod().ChooseDisplay((int)mode) } };
